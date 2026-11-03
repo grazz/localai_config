@@ -1,32 +1,35 @@
-# Minimal LocalAI model library overriding only Muse Glimmer 30B entries.
-# Uses the current canonical GGUF filenames and SHA256 values published by Meta.
-
+# Minimal LocalAI Muse Glimmer library with unique IDs/names to avoid collisions with the built-in gallery.
 - kind: model
-  id: muse-glimmer-30b
-  name: muse-glimmer-30b
+  id: grazz-muse-glimmer-30b
+  name: Muse Glimmer 30B (Grazz)
   version: 0.0.0-local.20261103
-  description: |
-    Muse Glimmer is Meta Superintelligence Labs' Apache-2.0 dense 30B model for
+  description: 'Muse Glimmer is Meta Superintelligence Labs'' Apache-2.0 dense 30B
+    model for
+
     autonomous agentic work, coding, tool use, long-horizon reasoning, and
-    multimodal understanding. This entry uses the publisher's higher-quality
+
+    multimodal understanding. This entry uses the publisher''s higher-quality
+
     dynamic K-quant GGUF and official quantized vision projector.
+
+    '
   license: apache-2.0
   urls:
-    - https://huggingface.co/meta-models/Muse-Glimmer-30B
-    - https://huggingface.co/meta-models/Muse-Glimmer-30B-GGUF
+  - https://huggingface.co/meta-models/Muse-Glimmer-30B
+  - https://huggingface.co/meta-models/Muse-Glimmer-30B-GGUF
   tags:
-    - llm
-    - gguf
-    - cpu
-    - gpu
-    - vision
-    - multimodal
-    - reasoning
-    - coding
-    - agent
-    - tools
-    - multilingual
-    - long-context
+  - llm
+  - gguf
+  - cpu
+  - gpu
+  - vision
+  - multimodal
+  - reasoning
+  - coding
+  - agent
+  - tools
+  - multilingual
+  - long-context
   channel: gallery
   policy:
     requireSignature: false
@@ -34,12 +37,12 @@
   model:
     url: github:mudler/LocalAI/gallery/virtual.yaml@master
     files:
-      - filename: llama-cpp/models/muse-glimmer-30b/Muse-Glimmer-30B-KQuant-Dynamic-Q4_K_XL.gguf
-        sha256: ac7023d6a4c704eb9af54ab53e476a66b7f5b6c0ef2fc4a8dde5253c291a6c38
-        uri: huggingface://meta-models/Muse-Glimmer-30B-GGUF/Muse-Glimmer-30B-KQuant-Dynamic-Q4_K_XL.gguf
-      - filename: llama-cpp/mmproj/muse-glimmer-30b/mmproj-Muse-Glimmer-30B-Q4_K_M.gguf
-        sha256: f48b452316f9b213758e8659444029b961a24a07f99a1abb2a9f88b06f7c00c6
-        uri: huggingface://meta-models/Muse-Glimmer-30B-GGUF/mmproj-Muse-Glimmer-30B-Q4_K_M.gguf
+    - filename: llama-cpp/models/muse-glimmer-30b/Muse-Glimmer-30B-KQuant-Dynamic-Q4_K_XL.gguf
+      sha256: ac7023d6a4c704eb9af54ab53e476a66b7f5b6c0ef2fc4a8dde5253c291a6c38
+      uri: huggingface://meta-models/Muse-Glimmer-30B-GGUF/Muse-Glimmer-30B-KQuant-Dynamic-Q4_K_XL.gguf
+    - filename: llama-cpp/mmproj/muse-glimmer-30b/mmproj-Muse-Glimmer-30B-Q4_K_M.gguf
+      sha256: f48b452316f9b213758e8659444029b961a24a07f99a1abb2a9f88b06f7c00c6
+      uri: huggingface://meta-models/Muse-Glimmer-30B-GGUF/mmproj-Muse-Glimmer-30B-Q4_K_M.gguf
     overrides:
       backend: llama-cpp
       function:
@@ -47,11 +50,11 @@
         grammar:
           disable: true
       known_usecases:
-        - chat
-        - vision
+      - chat
+      - vision
       mmproj: llama-cpp/mmproj/muse-glimmer-30b/mmproj-Muse-Glimmer-30B-Q4_K_M.gguf
       options:
-        - use_jinja:true
+      - use_jinja:true
       parameters:
         model: llama-cpp/models/muse-glimmer-30b/Muse-Glimmer-30B-KQuant-Dynamic-Q4_K_XL.gguf
         temperature: 1.0
@@ -60,37 +63,40 @@
       template:
         use_tokenizer_template: true
     variants:
-      - model: muse-glimmer-30b-dflash
-      - model: muse-glimmer-30b-17gb
-      - model: muse-glimmer-30b-17gb-dflash
-
+    - model: grazz-muse-glimmer-30b-dflash
+    - model: grazz-muse-glimmer-30b-17gb
+    - model: grazz-muse-glimmer-30b-17gb-dflash
 - kind: model
-  id: muse-glimmer-30b-dflash
-  name: muse-glimmer-30b-dflash
+  id: grazz-muse-glimmer-30b-dflash
+  name: Muse Glimmer 30B DFlash (Grazz)
   version: 0.0.0-local.20261103
-  description: |
-    Muse Glimmer's higher-quality dynamic K-quant GGUF with the official
+  description: 'Muse Glimmer''s higher-quality dynamic K-quant GGUF with the official
+
     quantized perception encoder and DFlash drafter. DFlash proposes blocks of
+
     up to 16 tokens for the target to verify in parallel, accelerating output
+
     without changing model quality. Flash attention is enabled for this path.
+
+    '
   license: apache-2.0
   urls:
-    - https://huggingface.co/meta-models/Muse-Glimmer-30B
-    - https://huggingface.co/meta-models/Muse-Glimmer-30B-GGUF
+  - https://huggingface.co/meta-models/Muse-Glimmer-30B
+  - https://huggingface.co/meta-models/Muse-Glimmer-30B-GGUF
   tags:
-    - llm
-    - gguf
-    - gpu
-    - vision
-    - multimodal
-    - reasoning
-    - coding
-    - agent
-    - tools
-    - multilingual
-    - long-context
-    - dflash
-    - speculative
+  - llm
+  - gguf
+  - gpu
+  - vision
+  - multimodal
+  - reasoning
+  - coding
+  - agent
+  - tools
+  - multilingual
+  - long-context
+  - dflash
+  - speculative
   channel: gallery
   policy:
     requireSignature: false
@@ -98,31 +104,31 @@
   model:
     url: github:mudler/LocalAI/gallery/virtual.yaml@master
     files:
-      - filename: llama-cpp/models/muse-glimmer-30b/Muse-Glimmer-30B-KQuant-Dynamic-Q4_K_XL.gguf
-        sha256: ac7023d6a4c704eb9af54ab53e476a66b7f5b6c0ef2fc4a8dde5253c291a6c38
-        uri: huggingface://meta-models/Muse-Glimmer-30B-GGUF/Muse-Glimmer-30B-KQuant-Dynamic-Q4_K_XL.gguf
-      - filename: llama-cpp/mmproj/muse-glimmer-30b/mmproj-Muse-Glimmer-30B-Q4_K_M.gguf
-        sha256: f48b452316f9b213758e8659444029b961a24a07f99a1abb2a9f88b06f7c00c6
-        uri: huggingface://meta-models/Muse-Glimmer-30B-GGUF/mmproj-Muse-Glimmer-30B-Q4_K_M.gguf
-      - filename: llama-cpp/models/muse-glimmer-30b/dflash-Muse-Glimmer-30B-Q4_K_M.gguf
-        sha256: b2e808bf656086fe86bd0d0bd990f01d33e377537a07c02d45371517c8b264ef
-        uri: huggingface://meta-models/Muse-Glimmer-30B-GGUF/dflash-Muse-Glimmer-30B-Q4_K_M.gguf
+    - filename: llama-cpp/models/muse-glimmer-30b/Muse-Glimmer-30B-KQuant-Dynamic-Q4_K_XL.gguf
+      sha256: ac7023d6a4c704eb9af54ab53e476a66b7f5b6c0ef2fc4a8dde5253c291a6c38
+      uri: huggingface://meta-models/Muse-Glimmer-30B-GGUF/Muse-Glimmer-30B-KQuant-Dynamic-Q4_K_XL.gguf
+    - filename: llama-cpp/mmproj/muse-glimmer-30b/mmproj-Muse-Glimmer-30B-Q4_K_M.gguf
+      sha256: f48b452316f9b213758e8659444029b961a24a07f99a1abb2a9f88b06f7c00c6
+      uri: huggingface://meta-models/Muse-Glimmer-30B-GGUF/mmproj-Muse-Glimmer-30B-Q4_K_M.gguf
+    - filename: llama-cpp/models/muse-glimmer-30b/dflash-Muse-Glimmer-30B-Q4_K_M.gguf
+      sha256: b2e808bf656086fe86bd0d0bd990f01d33e377537a07c02d45371517c8b264ef
+      uri: huggingface://meta-models/Muse-Glimmer-30B-GGUF/dflash-Muse-Glimmer-30B-Q4_K_M.gguf
     overrides:
       backend: llama-cpp
       draft_model: llama-cpp/models/muse-glimmer-30b/dflash-Muse-Glimmer-30B-Q4_K_M.gguf
-      flash_attention: "on"
+      flash_attention: 'on'
       function:
         automatic_tool_parsing_fallback: true
         grammar:
           disable: true
       known_usecases:
-        - chat
-        - vision
+      - chat
+      - vision
       mmproj: llama-cpp/mmproj/muse-glimmer-30b/mmproj-Muse-Glimmer-30B-Q4_K_M.gguf
       options:
-        - use_jinja:true
-        - spec_type:draft-dflash
-        - spec_n_max:15
+      - use_jinja:true
+      - spec_type:draft-dflash
+      - spec_n_max:15
       parameters:
         model: llama-cpp/models/muse-glimmer-30b/Muse-Glimmer-30B-KQuant-Dynamic-Q4_K_XL.gguf
         temperature: 1.0
@@ -131,33 +137,36 @@
       template:
         use_tokenizer_template: true
     variants: []
-
 - kind: model
-  id: muse-glimmer-30b-17gb
-  name: muse-glimmer-30b-17gb
+  id: grazz-muse-glimmer-30b-17gb
+  name: Muse Glimmer 30B 17GB (Grazz)
   version: 0.0.0-local.20261103
-  description: |
-    Muse Glimmer's smaller 17 GB K-quant GGUF with the official quantized
-    perception encoder. It preserves the model's agentic, coding, tool-use,
+  description: 'Muse Glimmer''s smaller 17 GB K-quant GGUF with the official quantized
+
+    perception encoder. It preserves the model''s agentic, coding, tool-use,
+
     multilingual, and image-understanding capabilities for hosts with less
+
     memory than the dynamic quantization requires.
+
+    '
   license: apache-2.0
   urls:
-    - https://huggingface.co/meta-models/Muse-Glimmer-30B
-    - https://huggingface.co/meta-models/Muse-Glimmer-30B-GGUF
+  - https://huggingface.co/meta-models/Muse-Glimmer-30B
+  - https://huggingface.co/meta-models/Muse-Glimmer-30B-GGUF
   tags:
-    - llm
-    - gguf
-    - cpu
-    - gpu
-    - vision
-    - multimodal
-    - reasoning
-    - coding
-    - agent
-    - tools
-    - multilingual
-    - long-context
+  - llm
+  - gguf
+  - cpu
+  - gpu
+  - vision
+  - multimodal
+  - reasoning
+  - coding
+  - agent
+  - tools
+  - multilingual
+  - long-context
   channel: gallery
   policy:
     requireSignature: false
@@ -165,12 +174,12 @@
   model:
     url: github:mudler/LocalAI/gallery/virtual.yaml@master
     files:
-      - filename: llama-cpp/models/muse-glimmer-30b/Muse-Glimmer-30B-KQuant-17GB-Q4_K_M.gguf
-        sha256: 4cc57c0f51040a226e5a72cc47b7613f7772950e460a665f7083de89f183f60e
-        uri: huggingface://meta-models/Muse-Glimmer-30B-GGUF/Muse-Glimmer-30B-KQuant-17GB-Q4_K_M.gguf
-      - filename: llama-cpp/mmproj/muse-glimmer-30b/mmproj-Muse-Glimmer-30B-Q4_K_M.gguf
-        sha256: f48b452316f9b213758e8659444029b961a24a07f99a1abb2a9f88b06f7c00c6
-        uri: huggingface://meta-models/Muse-Glimmer-30B-GGUF/mmproj-Muse-Glimmer-30B-Q4_K_M.gguf
+    - filename: llama-cpp/models/muse-glimmer-30b/Muse-Glimmer-30B-KQuant-17GB-Q4_K_M.gguf
+      sha256: 4cc57c0f51040a226e5a72cc47b7613f7772950e460a665f7083de89f183f60e
+      uri: huggingface://meta-models/Muse-Glimmer-30B-GGUF/Muse-Glimmer-30B-KQuant-17GB-Q4_K_M.gguf
+    - filename: llama-cpp/mmproj/muse-glimmer-30b/mmproj-Muse-Glimmer-30B-Q4_K_M.gguf
+      sha256: f48b452316f9b213758e8659444029b961a24a07f99a1abb2a9f88b06f7c00c6
+      uri: huggingface://meta-models/Muse-Glimmer-30B-GGUF/mmproj-Muse-Glimmer-30B-Q4_K_M.gguf
     overrides:
       backend: llama-cpp
       function:
@@ -178,11 +187,11 @@
         grammar:
           disable: true
       known_usecases:
-        - chat
-        - vision
+      - chat
+      - vision
       mmproj: llama-cpp/mmproj/muse-glimmer-30b/mmproj-Muse-Glimmer-30B-Q4_K_M.gguf
       options:
-        - use_jinja:true
+      - use_jinja:true
       parameters:
         model: llama-cpp/models/muse-glimmer-30b/Muse-Glimmer-30B-KQuant-17GB-Q4_K_M.gguf
         temperature: 1.0
@@ -191,34 +200,37 @@
       template:
         use_tokenizer_template: true
     variants: []
-
 - kind: model
-  id: muse-glimmer-30b-17gb-dflash
-  name: muse-glimmer-30b-17gb-dflash
+  id: grazz-muse-glimmer-30b-17gb-dflash
+  name: Muse Glimmer 30B 17GB DFlash (Grazz)
   version: 0.0.0-local.20261103
-  description: |
-    Muse Glimmer's smaller 17 GB K-quant GGUF with the official quantized
+  description: 'Muse Glimmer''s smaller 17 GB K-quant GGUF with the official quantized
+
     perception encoder and DFlash drafter. This is the lowest-memory published
+
     build that retains image understanding and block-speculative decoding.
+
     Flash attention is enabled for the DFlash path.
+
+    '
   license: apache-2.0
   urls:
-    - https://huggingface.co/meta-models/Muse-Glimmer-30B
-    - https://huggingface.co/meta-models/Muse-Glimmer-30B-GGUF
+  - https://huggingface.co/meta-models/Muse-Glimmer-30B
+  - https://huggingface.co/meta-models/Muse-Glimmer-30B-GGUF
   tags:
-    - llm
-    - gguf
-    - gpu
-    - vision
-    - multimodal
-    - reasoning
-    - coding
-    - agent
-    - tools
-    - multilingual
-    - long-context
-    - dflash
-    - speculative
+  - llm
+  - gguf
+  - gpu
+  - vision
+  - multimodal
+  - reasoning
+  - coding
+  - agent
+  - tools
+  - multilingual
+  - long-context
+  - dflash
+  - speculative
   channel: gallery
   policy:
     requireSignature: false
@@ -226,31 +238,31 @@
   model:
     url: github:mudler/LocalAI/gallery/virtual.yaml@master
     files:
-      - filename: llama-cpp/models/muse-glimmer-30b/Muse-Glimmer-30B-KQuant-17GB-Q4_K_M.gguf
-        sha256: 4cc57c0f51040a226e5a72cc47b7613f7772950e460a665f7083de89f183f60e
-        uri: huggingface://meta-models/Muse-Glimmer-30B-GGUF/Muse-Glimmer-30B-KQuant-17GB-Q4_K_M.gguf
-      - filename: llama-cpp/mmproj/muse-glimmer-30b/mmproj-Muse-Glimmer-30B-Q4_K_M.gguf
-        sha256: f48b452316f9b213758e8659444029b961a24a07f99a1abb2a9f88b06f7c00c6
-        uri: huggingface://meta-models/Muse-Glimmer-30B-GGUF/mmproj-Muse-Glimmer-30B-Q4_K_M.gguf
-      - filename: llama-cpp/models/muse-glimmer-30b/dflash-Muse-Glimmer-30B-Q4_K_M.gguf
-        sha256: b2e808bf656086fe86bd0d0bd990f01d33e377537a07c02d45371517c8b264ef
-        uri: huggingface://meta-models/Muse-Glimmer-30B-GGUF/dflash-Muse-Glimmer-30B-Q4_K_M.gguf
+    - filename: llama-cpp/models/muse-glimmer-30b/Muse-Glimmer-30B-KQuant-17GB-Q4_K_M.gguf
+      sha256: 4cc57c0f51040a226e5a72cc47b7613f7772950e460a665f7083de89f183f60e
+      uri: huggingface://meta-models/Muse-Glimmer-30B-GGUF/Muse-Glimmer-30B-KQuant-17GB-Q4_K_M.gguf
+    - filename: llama-cpp/mmproj/muse-glimmer-30b/mmproj-Muse-Glimmer-30B-Q4_K_M.gguf
+      sha256: f48b452316f9b213758e8659444029b961a24a07f99a1abb2a9f88b06f7c00c6
+      uri: huggingface://meta-models/Muse-Glimmer-30B-GGUF/mmproj-Muse-Glimmer-30B-Q4_K_M.gguf
+    - filename: llama-cpp/models/muse-glimmer-30b/dflash-Muse-Glimmer-30B-Q4_K_M.gguf
+      sha256: b2e808bf656086fe86bd0d0bd990f01d33e377537a07c02d45371517c8b264ef
+      uri: huggingface://meta-models/Muse-Glimmer-30B-GGUF/dflash-Muse-Glimmer-30B-Q4_K_M.gguf
     overrides:
       backend: llama-cpp
       draft_model: llama-cpp/models/muse-glimmer-30b/dflash-Muse-Glimmer-30B-Q4_K_M.gguf
-      flash_attention: "on"
+      flash_attention: 'on'
       function:
         automatic_tool_parsing_fallback: true
         grammar:
           disable: true
       known_usecases:
-        - chat
-        - vision
+      - chat
+      - vision
       mmproj: llama-cpp/mmproj/muse-glimmer-30b/mmproj-Muse-Glimmer-30B-Q4_K_M.gguf
       options:
-        - use_jinja:true
-        - spec_type:draft-dflash
-        - spec_n_max:15
+      - use_jinja:true
+      - spec_type:draft-dflash
+      - spec_n_max:15
       parameters:
         model: llama-cpp/models/muse-glimmer-30b/Muse-Glimmer-30B-KQuant-17GB-Q4_K_M.gguf
         temperature: 1.0
